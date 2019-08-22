@@ -1,0 +1,98 @@
+.nav {
+  padding: 20px;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+
+  .nav-logo {
+    flex: 0 0 100px;
+  }
+
+  .nav-links {
+    list-style-type: none;
+  }
+
+  .nav-item {
+    display: inline;
+    flex: 0 1 100px;
+  }
+}
+
+.product-list,
+.cart-item-list {
+  list-style: none;
+
+  .product-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #f3f0eb;
+    padding: 10px 0;
+    width: 100%;
+
+    .product-info {
+      flex: 1 1;
+      margin: 10px 20px;
+    }
+
+    .product-add {
+      flex: 0 0 200px;
+    }
+  }
+
+  .product-thumbnail {
+    width: 20%;
+    img {
+      min-width: 30px;
+      max-width: 100%;
+      // height: auto;
+    }
+  }
+}
+
+.macarons-logo {
+  width: 100px;
+}
+
+.page-wrapper {
+  position: relative;
+}
+
+.cart-wrapper {
+  position: fixed;
+  width: 100vw;
+}
+
+.cart-background {
+  position: absolute;
+  background: black;
+  height: 100vh;
+  width: 100vw;
+  z-index: 0;
+  transition: all 0.4s ease-in-out;
+
+  &.inactive {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &.active {
+    visibility: visible;
+    opacity: 0.5;
+  }
+}
+
+.cart-pane {
+  background: white;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  opacity: 1;
+  width: 362px;
+  transform: translate3d(100%, 0, 0);
+  transition: transform 0.4s ease-in-out;
+
+  &.active {
+    transform: translate3d(0, 0, 0);
+  }
+}
