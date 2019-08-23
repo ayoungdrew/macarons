@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap');
+
+$gray: #595959;
+
+body {
+  font-family: 'Poppins';
+}
+
 .nav {
   padding: 20px;
   border-bottom: 1px solid black;
@@ -10,11 +18,16 @@
 
   .nav-links {
     list-style-type: none;
+    padding: 20px 40px;
   }
 
   .nav-item {
     display: inline;
-    flex: 0 1 100px;
+    flex: 0 1 10px;
+    padding: 0 20px;
+    a {
+      text-decoration: none;
+    }
   }
 }
 
@@ -32,6 +45,15 @@
     .product-info {
       flex: 1 1;
       margin: 10px 20px;
+
+      h3 {
+        color: #5dad93;
+      }
+
+      p {
+        color: $gray;
+        font-size: 14px;
+      }
     }
 
     .product-add {
@@ -60,6 +82,7 @@
 .cart-wrapper {
   position: fixed;
   width: 100vw;
+  z-index: 1;
 }
 
 .cart-background {
@@ -95,4 +118,31 @@
   &.active {
     transform: translate3d(0, 0, 0);
   }
+}
+
+.cart-icon-wrapper {
+  display: inline-block;
+  position: relative;
+  width: 100px;
+  z-index: 0;
+}
+
+.cart-icon {
+  display: inline-block;
+  // position: absolute;
+  width: 22px;
+  margin-right: 20px;
+}
+
+.cart-quantity {
+  display: inline;
+  background: red;
+  position: absolute;
+  left: 12px;
+  top: -8px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-radius: 10px;
+  color: white;
 }

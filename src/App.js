@@ -6,7 +6,7 @@ import ProductPreview from './ProductPreview';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
-  const [cartViewActive, setCartViewActive] = useState(true);
+  const [cartViewActive, setCartViewActive] = useState(false);
 
   useEffect(() => {
     console.log('cart items are now', cartItems);
@@ -15,6 +15,13 @@ function App() {
   function addToCart(product) {
     console.log('adding', product);
     setCartItems([...cartItems, product]);
+  }
+
+  function removeFromCart(productName, index) {
+    console.log(productName, index);
+    const newArr = [...cartItems];
+    newArr.splice(index, 1);
+    setCartItems(newArr);
   }
 
   function toggleCartView(e) {
@@ -42,12 +49,12 @@ function App() {
             Close
           </p>
           <ul className="cart-item-list">
-            {cartItems.map(cartItem => (
+            {cartItems.map((cartItem, index) => (
               <ProductPreview
-                addToCart={() => addToCart(cartItem)}
-                name={cartItem.name}
-                images={cartItem.images}
+                product={cartItem}
+                index={index}
                 cartView={true}
+                removeFromCart={() => removeFromCart(cartItem.name, index)}
               />
             ))}
           </ul>
@@ -61,21 +68,39 @@ function App() {
           alt="logo"
         />
         <ul className="nav-links">
-          <li className="nav-item">Menu</li>
-          <li className="nav-item">Beverages</li>
-          <li className="nav-item">Gifts</li>
+          <li className="nav-item">
+            <a href="">Menu</a>
+          </li>
+          <li className="nav-item">
+            <a href="">Beverages</a>
+          </li>
+          <li className="nav-item">
+            <a href="">Gifts</a>
+          </li>
+          <li className="nav-item">|</li>
           <li className="nav-item" onClick={() => toggleCartView()}>
-            Cart {cartItems.length}
+            <div className="cart-icon-wrapper">
+              <img
+                src={process.env.PUBLIC_URL + '/images/cart_icon.svg'}
+                className="cart-icon"
+                alt="logo"
+              />
+              <div className="cart-quantity" onClick={() => toggleCartView()}>
+                {cartItems.length}
+              </div>
+              <span>Cart</span>
+            </div>
           </li>
         </ul>
       </div>
       <ul className="product-list">
-        {products.map(product => (
+        {products.map((product, index) => (
           <ProductPreview
-            addToCart={() => addToCart(product)}
-            name={product.name}
-            images={product.images}
+            product={product}
+            index={index}
             cartView={false}
+            addToCart={() => addToCart(product)}
+            addedStatus={cartItems.some(x => x.name === product.name)}
           />
         ))}
       </ul>
