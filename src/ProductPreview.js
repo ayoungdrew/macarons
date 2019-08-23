@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const ProductPreview = props => {
   const { name, description, images } = props.product;
 
-  // const [addedStatus, setAddedStatus] = useState(false);
-
   const addItem = () => {
-    // setAddedStatus(true);
     props.addToCart();
   };
 
@@ -36,11 +33,13 @@ const ProductPreview = props => {
       {props.cartView ? null : (
         <div className="product-add">
           <button
+            className={'btn-add ' + (props.addedStatus ? 'added' : '')}
             type="button"
             disabled={props.addedStatus}
             onClick={() => addItem()}
           >
-            {props.addedStatus ? 'added' : 'add'}
+            {props.addedStatus ? <span>&#10003; </span> : null}
+            {props.addedStatus ? 'Added to cart' : '+ Add to cart'}
           </button>
         </div>
       )}

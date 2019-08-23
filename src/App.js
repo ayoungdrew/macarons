@@ -1,65 +1,37 @@
 import React, { useState, useEffect } from 'react';
-// import logo from "../public/images/logo.svg";
 import './App.scss';
 import products from './products.js';
 import ProductPreview from './ProductPreview';
+import Cart from './Cart';
 
-function App() {
+const App = () => {
   const [cartItems, setCartItems] = useState([]);
   const [cartViewActive, setCartViewActive] = useState(false);
 
-  useEffect(() => {
-    console.log('cart items are now', cartItems);
-  });
+  useEffect(() => {});
 
-  function addToCart(product) {
-    console.log('adding', product);
+  const addToCart = product => {
     setCartItems([...cartItems, product]);
-  }
+  };
 
-  function removeFromCart(productName, index) {
-    console.log(productName, index);
+  const removeFromCart = (productName, index) => {
     const newArr = [...cartItems];
     newArr.splice(index, 1);
     setCartItems(newArr);
-  }
+  };
 
-  function toggleCartView(e) {
-    console.log('cart toggle', e);
+  const toggleCartView = e => {
     setCartViewActive(!cartViewActive);
-  }
+  };
 
   return (
     <div className="page-wrapper">
-      <div className="cart-wrapper">
-        <div
-          className={
-            'cart-background ' + (cartViewActive ? 'active' : 'inactive')
-          }
-        />
-        <div
-          className={'cart-pane ' + (cartViewActive ? 'active' : 'inactive')}
-        >
-          <p
-            href=""
-            onClick={() => {
-              toggleCartView();
-            }}
-          >
-            Close
-          </p>
-          <ul className="cart-item-list">
-            {cartItems.map((cartItem, index) => (
-              <ProductPreview
-                product={cartItem}
-                index={index}
-                cartView={true}
-                removeFromCart={() => removeFromCart(cartItem.name, index)}
-              />
-            ))}
-          </ul>
-        </div>
-      </div>
+      <Cart
+        cartItems={cartItems}
+        cartViewActive={cartViewActive}
+        removeFromCart={removeFromCart}
+        toggleCartView={toggleCartView}
+      />
       <div className="nav">
         {' '}
         <img
@@ -99,13 +71,16 @@ function App() {
             product={product}
             index={index}
             cartView={false}
-            addToCart={() => addToCart(product)}
+            addToCart={() => {
+              addToCart(product);
+            }}
             addedStatus={cartItems.some(x => x.name === product.name)}
+            key={product.name}
           />
         ))}
       </ul>
     </div>
   );
-}
+};
 
 export default App;

@@ -1,9 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap');
 
-$gray: #595959;
+$gray-1: #595959;
+$green-1: #5dad93;
+$green-2: #2fc594;
 
 body {
+  color: $gray-1;
   font-family: 'Poppins';
+  font-size: 14px;
+}
+
+a {
+  color: $gray-1;
+}
+
+button {
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .nav {
@@ -44,14 +57,15 @@ body {
 
     .product-info {
       flex: 1 1;
-      margin: 10px 20px;
+      margin: 0 20px;
 
       h3 {
+        margin-top: 0;
         color: #5dad93;
       }
 
       p {
-        color: $gray;
+        color: $gray-1;
         font-size: 14px;
       }
     }
@@ -104,6 +118,12 @@ body {
   }
 }
 
+.cart-close {
+  text-align: right;
+  margin: 28px 30px;
+  cursor: pointer;
+}
+
 .cart-pane {
   background: white;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
@@ -145,4 +165,17 @@ body {
   text-align: center;
   border-radius: 10px;
   color: white;
+}
+
+.btn-add {
+  background: $green-1;
+  border-radius: 2px;
+  height: 50px;
+  width: 175px;
+  color: white;
+  // font-size: 30px;
+
+  &.added {
+    background: $green-2;
+  }
 }
