@@ -1,13 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap');
 
 $gray-1: #595959;
+$gray-2: #919eab;
 $green-1: #5dad93;
 $green-2: #2fc594;
+$footer-height: 203px;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
 
 body {
   color: $gray-1;
   font-family: 'Poppins';
   font-size: 14px;
+  position: relative;
 }
 
 a {
@@ -20,10 +28,11 @@ button {
 }
 
 .nav {
-  padding: 20px;
-  border-bottom: 1px solid black;
+  padding: 0 20px;
+  border-bottom: 1px solid #e5e5e5;
   display: flex;
   justify-content: space-between;
+  height: 70px;
 
   .nav-logo {
     flex: 0 0 100px;
@@ -31,7 +40,7 @@ button {
 
   .nav-links {
     list-style-type: none;
-    padding: 20px 40px;
+    padding: 10px 40px;
   }
 
   .nav-item {
@@ -44,9 +53,9 @@ button {
   }
 }
 
-.product-list,
-.cart-item-list {
+.product-list {
   list-style: none;
+  margin: 0;
 
   .product-row {
     display: flex;
@@ -80,9 +89,16 @@ button {
     img {
       min-width: 30px;
       max-width: 100%;
-      // height: auto;
     }
   }
+}
+
+.cart-item-list {
+  @extend .product-list;
+  border-top: 1px solid $gray-1;
+  max-height: 500px;
+  padding: 0;
+  overflow: auto;
 }
 
 .macarons-logo {
@@ -91,6 +107,8 @@ button {
 
 .page-wrapper {
   position: relative;
+  min-height: 100vh;
+  padding: 0 0 $footer-height 0;
 }
 
 .cart-wrapper {
@@ -120,7 +138,6 @@ button {
 
 .cart-close {
   text-align: right;
-  margin: 28px 30px;
   cursor: pointer;
 }
 
@@ -128,6 +145,8 @@ button {
   background: white;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
   height: 100vh;
+  padding: 30px;
+  box-sizing: border-box;
   position: absolute;
   right: 0;
   opacity: 1;
@@ -177,5 +196,61 @@ button {
 
   &.added {
     background: $green-2;
+  }
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid $gray-1;
+}
+
+.footer {
+  height: $footer-height;
+  background: #faf9f7;
+  position: absolute;
+  bottom: 0;
+  padding: 0 calc((100vw - 1024px) / 2);
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+  .footer-left {
+    width: 360px;
+
+    h3 {
+      font-weight: 500;
+    }
+  }
+
+  .footer-right {
+    box-sizing: border-box;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 400px;
+    padding-top: 20px;
+
+    h4 {
+      margin: 0;
+    }
+
+    .footer-link-list {
+      list-style: none;
+      padding: 0;
+
+      li {
+        cursor: pointer;
+        height: 38px;
+      }
+    }
+  }
+
+  .footer-copyright {
+    color: $gray-2;
+    font-weight: 600;
   }
 }

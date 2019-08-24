@@ -3,6 +3,7 @@ import './App.scss';
 import products from './products.js';
 import ProductPreview from './ProductPreview';
 import Cart from './Cart';
+import Footer from './Footer';
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -79,6 +80,7 @@ const App = () => {
           />
         ))}
       </ul>
+      <Footer />
     </div>
   );
 };
