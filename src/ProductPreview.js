@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProductPreview = props => {
-  const { name, description, images } = props.product;
+  const { name, description, images, price } = props.product;
 
   const addItem = () => {
     props.addToCart();
@@ -32,6 +32,13 @@ const ProductPreview = props => {
       </div>
       {props.cartView ? null : (
         <div className="product-add">
+          <p className="product-price">
+            {price.toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD'
+            })}
+            /ea.
+          </p>
           <button
             className={'btn-add ' + (props.addedStatus ? 'added' : '')}
             type="button"

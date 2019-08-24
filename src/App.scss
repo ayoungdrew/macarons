@@ -2,9 +2,11 @@
 
 $gray-1: #595959;
 $gray-2: #919eab;
+$beige-1: #faf9f7;
 $green-1: #5dad93;
 $green-2: #2fc594;
 $footer-height: 203px;
+$side-padding: calc((100% - 1024px) / 2);
 
 html {
   position: relative;
@@ -27,8 +29,12 @@ button {
   cursor: pointer;
 }
 
+.font-italic {
+  font-style: italic;
+}
+
 .nav {
-  padding: 0 20px;
+  padding: 0 $side-padding;
   border-bottom: 1px solid #e5e5e5;
   display: flex;
   justify-content: space-between;
@@ -40,15 +46,19 @@ button {
 
   .nav-links {
     list-style-type: none;
-    padding: 10px 40px;
-  }
+    padding: 10px 0 20px 40px;
 
-  .nav-item {
-    display: inline;
-    flex: 0 1 10px;
-    padding: 0 20px;
-    a {
-      text-decoration: none;
+    li {
+      display: inline;
+      padding: 0 20px;
+    }
+
+    .nav-item {
+      cursor: pointer;
+
+      &:nth-last-child(1) {
+        padding-right: 0;
+      }
     }
   }
 }
@@ -56,13 +66,19 @@ button {
 .product-list {
   list-style: none;
   margin: 0;
+  padding: 0;
 
   .product-row {
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #f3f0eb;
-    padding: 10px 0;
+    padding: 11px $side-padding 10px $side-padding;
     width: 100%;
+
+    &:nth-last-child(1) {
+      border-bottom: none;
+    }
 
     .product-info {
       flex: 1 1;
@@ -80,7 +96,17 @@ button {
     }
 
     .product-add {
+      box-sizing: border-box;
+      background: $beige-1;
       flex: 0 0 200px;
+      padding: 33px 20px 22px 20px;
+    }
+
+    .product-price {
+      font-weight: 700;
+      font-size: 20px;
+      text-align: center;
+      margin-top: 0;
     }
   }
 
@@ -106,6 +132,7 @@ button {
 }
 
 .page-wrapper {
+  box-sizing: border-box;
   position: relative;
   min-height: 100vh;
   padding: 0 0 $footer-height 0;
@@ -162,7 +189,6 @@ button {
 .cart-icon-wrapper {
   display: inline-block;
   position: relative;
-  width: 100px;
   z-index: 0;
 }
 
@@ -175,7 +201,7 @@ button {
 
 .cart-quantity {
   display: inline;
-  background: red;
+  background: $green-2;
   position: absolute;
   left: 12px;
   top: -8px;
@@ -207,10 +233,10 @@ button {
 
 .footer {
   height: $footer-height;
-  background: #faf9f7;
+  background: $beige-1;
   position: absolute;
   bottom: 0;
-  padding: 0 calc((100vw - 1024px) / 2);
+  padding: 0 $side-padding;
   width: 100vw;
   display: flex;
   justify-content: space-between;
@@ -226,7 +252,6 @@ button {
 
   .footer-right {
     box-sizing: border-box;
-
     height: 100%;
     display: flex;
     flex-direction: column;

@@ -41,16 +41,10 @@ const App = () => {
           alt="logo"
         />
         <ul className="nav-links">
-          <li className="nav-item">
-            <a href="">Menu</a>
-          </li>
-          <li className="nav-item">
-            <a href="">Beverages</a>
-          </li>
-          <li className="nav-item">
-            <a href="">Gifts</a>
-          </li>
-          <li className="nav-item">|</li>
+          <li className="nav-item">Menu</li>
+          <li className="nav-item">Beverages</li>
+          <li className="nav-item">Gifts</li>
+          <li>|</li>
           <li className="nav-item" onClick={() => toggleCartView()}>
             <div className="cart-icon-wrapper">
               <img

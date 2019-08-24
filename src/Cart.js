@@ -32,19 +32,24 @@ const Cart = ({
         >
           Close
         </p>
-        <ul className="cart-item-list">
-          {cartItems.map((cartItem, index) => (
-            <ProductPreview
-              product={cartItem}
-              index={index}
-              cartView={true}
-              removeFromCart={() => {
-                removeItem(cartItem.name, index);
-              }}
-              key={index}
-            />
-          ))}
-        </ul>
+        <h2>My Cart</h2>
+        {cartItems.length > 0 ? (
+          <ul className="cart-item-list">
+            {cartItems.map((cartItem, index) => (
+              <ProductPreview
+                product={cartItem}
+                index={index}
+                cartView={true}
+                removeFromCart={() => {
+                  removeItem(cartItem.name, index);
+                }}
+                key={index}
+              />
+            ))}
+          </ul>
+        ) : (
+          <p className="font-italic">No items in cart</p>
+        )}
         <div className="cart-total">
           <p>Total</p>
           <p>
