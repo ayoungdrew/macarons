@@ -10,6 +10,7 @@ $green-2: #2fc594;
 $green-3: #3b8873;
 $footer-height: 203px;
 $side-padding: calc((100% - 1024px) / 2);
+$desktop-size: 'screen and(min-width: 1024px)';
 
 html {
   position: relative;
@@ -42,11 +43,15 @@ button {
 }
 
 .nav {
-  padding: 0 $side-padding;
+  padding: 0 20px;
   border-bottom: 1px solid #e5e5e5;
   display: flex;
   justify-content: space-between;
   height: 70px;
+
+  @media #{$desktop-size} {
+    padding: 0 $side-padding;
+  }
 
   .nav-logo {
     flex: 0 0 100px;
@@ -101,7 +106,10 @@ button {
 }
 
 .page-content {
-  padding: 11px $side-padding 10px $side-padding;
+  padding: 20px;
+  @media #{$desktop-size} {
+    padding: 11px $side-padding 10px $side-padding;
+  }
 }
 
 .product-list {
