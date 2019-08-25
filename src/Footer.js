@@ -10,17 +10,17 @@ const Footer = props => {
         <div>
           <img
             src={process.env.PUBLIC_URL + '/images/facebook_icon.svg'}
-            className="cart-icon"
+            className="social-icon"
             alt="logo"
           />
           <img
             src={process.env.PUBLIC_URL + '/images/instagram_icon.svg'}
-            className="cart-icon"
+            className="social-icon"
             alt="logo"
           />{' '}
           <img
             src={process.env.PUBLIC_URL + '/images/twitter_icon.svg'}
-            className="cart-icon"
+            className="social-icon"
             alt="logo"
           />
           <p className="footer-copyright">© 2019 MACARONS</p>

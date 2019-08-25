@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProductPreview = props => {
-  const { name, description, images, price } = props.product;
+  const { name, description, images, price, quantity } = props.product;
 
   const addItem = () => {
     props.addToCart();
@@ -22,13 +22,15 @@ const ProductPreview = props => {
       </div>
       <div className="product-info">
         <h3>{name}</h3>
-        <p>{description}</p>
+        <h4>{quantity}</h4>
 
         {props.cartView ? (
-          <a className="upvotes" onClick={() => removeItem()}>
+          <p className="product-remove" onClick={() => removeItem()}>
             Remove
-          </a>
-        ) : null}
+          </p>
+        ) : (
+          <p>{description}</p>
+        )}
       </div>
       {props.cartView ? null : (
         <div className="product-add">
