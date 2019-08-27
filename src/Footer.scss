@@ -1,12 +1,12 @@
 .footer {
   height: $footer-height;
   background: $beige-1;
+  box-sizing: border-box;
+  display: flex;
   position: absolute;
   bottom: 0;
   width: 100vw;
-  display: flex;
   justify-content: space-between;
-  box-sizing: border-box;
   padding: 20px;
 
   @media #{$desktop-size} {

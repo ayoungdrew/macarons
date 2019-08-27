@@ -32,7 +32,14 @@ const ProductPreview = props => {
           <p>{description}</p>
         )}
       </div>
-      {props.cartView ? null : (
+      {props.cartView ? (
+        <p className="subtotal">
+          {price.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD'
+          })}
+        </p>
+      ) : (
         <div className="product-add">
           <p className="product-price">
             {price.toLocaleString('en-US', {
@@ -48,7 +55,9 @@ const ProductPreview = props => {
             onClick={() => addItem()}
           >
             {props.addedStatus ? <span>&#10003; </span> : null}
-            {props.addedStatus ? 'Added to cart' : '+ Add to cart'}
+            <span class="font-poppins">
+              {props.addedStatus ? 'Added to cart' : '+ Add to cart'}
+            </span>
           </button>
         </div>
       )}

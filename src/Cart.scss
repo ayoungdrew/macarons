@@ -29,8 +29,8 @@
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  width: 100vw;
   height: 100vh;
+  width: 100vw;
   right: 0;
   opacity: 1;
   padding: 30px;
@@ -50,8 +50,9 @@
 .cart-header {
   flex: 0 0;
   .cart-close {
-    text-align: right;
     cursor: pointer;
+    font-weight: 500;
+    text-align: right;
   }
 }
 
@@ -59,9 +60,10 @@
   @extend .product-list;
   border-top: 1px solid $gray-4;
   flex: 0 1 auto;
-  padding: 0;
-  overflow: auto;
   margin: 0;
+  min-height: 100px;
+  overflow: auto;
+  padding: 0;
 
   .product-thumbnail {
     min-width: 80px;
@@ -83,11 +85,30 @@
       margin: 6px 0;
     }
   }
+
+  .subtotal {
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0;
+  }
 }
 
 .cart-total {
-  display: flex;
-  flex: 0 0;
-  justify-content: space-between;
   border-top: 1px solid $gray-4;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 0;
+  font-weight: 600;
+  justify-content: space-between;
+
+  .btn-checkout {
+    background: $green-1;
+    border-radius: 4px;
+    color: white;
+    display: block;
+    font-family: 'Poppins';
+    height: 50px;
+    width: 100%;
+    margin-top: 10px;
+  }
 }

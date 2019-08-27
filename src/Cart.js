@@ -59,6 +59,11 @@ const Cart = ({
               .reduce((a, b) => a + b.price, 0)
               .toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
           </p>
+          {cartItems.length ? (
+            <button className="btn-checkout font-poppins" type="button">
+              Continue to Checkout
+            </button>
+          ) : null}
         </div>
       </div>
     </div>

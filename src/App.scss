@@ -13,8 +13,8 @@ $side-padding: calc((100% - 1024px) / 2);
 $desktop-size: 'screen and(min-width: 1024px)';
 
 html {
-  position: relative;
   min-height: 100%;
+  position: relative;
 }
 
 body {
@@ -42,12 +42,16 @@ button {
   font-style: italic;
 }
 
+.font-poppins {
+  font-family: 'Poppins';
+}
+
 .nav {
-  padding: 0 20px;
   border-bottom: 1px solid #e5e5e5;
   display: flex;
-  justify-content: space-between;
   height: 70px;
+  justify-content: space-between;
+  padding: 0 20px;
 
   @media #{$desktop-size} {
     padding: 0 $side-padding;
@@ -137,17 +141,17 @@ button {
 
     .product-remove {
       color: $gray-3;
+      cursor: pointer;
       font-size: 10px;
       text-decoration: underline;
-      cursor: pointer;
     }
 
     .product-price {
-      letter-spacing: 1px;
       font-weight: 600;
       font-size: 20px;
-      text-align: center;
+      letter-spacing: 1px;
       margin-top: 0;
+      text-align: center;
     }
   }
 
