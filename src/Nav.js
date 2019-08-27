@@ -23,9 +23,11 @@ const Nav = props => {
               className="nav-cart-icon"
               alt="logo"
             />
-            <div className="nav-cart-quantity" onClick={() => viewCart()}>
-              {props.cartItems.length}
-            </div>
+            {props.cartItems.length ? (
+              <div className="nav-cart-quantity" onClick={() => viewCart()}>
+                {props.cartItems.length}
+              </div>
+            ) : null}
             <span>Cart</span>
           </div>
         </li>

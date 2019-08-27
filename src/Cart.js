@@ -23,16 +23,18 @@ const Cart = ({
         }
       />
       <div className={'cart-pane ' + (cartViewActive ? 'active' : 'inactive')}>
-        <p
-          className="cart-close"
-          href=""
-          onClick={() => {
-            toggleCart();
-          }}
-        >
-          Close
-        </p>
-        <h2>My Cart</h2>
+        <div className="cart-header">
+          <p
+            className="cart-close"
+            href=""
+            onClick={() => {
+              toggleCart();
+            }}
+          >
+            Close
+          </p>
+          <h2>My Cart</h2>
+        </div>
         {cartItems.length > 0 ? (
           <ul className="cart-item-list">
             {cartItems.map((cartItem, index) => (
